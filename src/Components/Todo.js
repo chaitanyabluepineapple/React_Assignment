@@ -5,7 +5,7 @@ const Todo = ({ text, todo, setTodos, todos }) => {
     const deleteFun = () => {
         console.log(todo.id);
         setTodos(todos.filter(item => item.id !== todo.id));
-    }
+    } 
 
     // Completed Function 
     const completedFun = () => {
@@ -16,7 +16,7 @@ const Todo = ({ text, todo, setTodos, todos }) => {
                 console.log(todo.id);
                 return{
                     ...item, completed: !item.completed
-                    // here are we are changing state of task to true from false i.e. task is completed and return all the items from array
+                    // changing state of todo task from False to true
                 };
             }
             return item;
@@ -25,13 +25,16 @@ const Todo = ({ text, todo, setTodos, todos }) => {
 
     return (
         <div className="todo">
+            
             <li className={`todo-item ${todo.completed ? "completed" : ""}`}>
-                {/* here we are using bakctiks becaz we are using 2 classname at one time if task is completed then apply completed class from css and if not then keep it uncompleted i.e. clear */}
+                {/* task completed apply 'completed' class of css */}
                 {text}
             </li>
             
             <button onClick={completedFun} className="complete-btn"><i className="fas fa-check"></i></button>
             <button onClick={deleteFun} className="trash-btn"><i className="fas fa-trash"></i></button>
+
+            
         </div>
         
     );

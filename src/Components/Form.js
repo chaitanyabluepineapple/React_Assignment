@@ -10,13 +10,21 @@ const Form = ({ setInputText, todos, setTodos, inputText }) => {
     const submitTask = (e) => {
         // when we submit task page get reloaded to prevent
         e.preventDefault();
+
+        // adding todo task into array todos
+        if(inputText === "" || inputText === undefined) 
+        {
+            console.log("Text From Input Text:-",setInputText);
+            alert("Please Enter Something In Text Box");
+        }
+        else{
         setTodos([
             ...todos,
             { text: inputText, completed: false, id: Math.random() * 1000 },
         ]);
-        //meaning of ...todos -> if we already have todos in array then pass it and for new to do create one object which contains text and it comes from inputText State , completed we set it as false and id key and their respected value
         setInputText("");
-        // here we are setting setInputText as empty becaz state is tich old value holde krtey
+        // empty becaz state holding old values
+        }
     };
     return (
         <form>
